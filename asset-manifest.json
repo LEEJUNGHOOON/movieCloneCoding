@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/movieCloneCoding/static/css/main.731aff07.css",
+    "main.js": "/movieCloneCoding/static/js/main.a45af7c6.js",
+    "index.html": "/movieCloneCoding/index.html",
+    "main.731aff07.css.map": "/movieCloneCoding/static/css/main.731aff07.css.map",
+    "main.a45af7c6.js.map": "/movieCloneCoding/static/js/main.a45af7c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.731aff07.css",
+    "static/js/main.a45af7c6.js"
+  ]
+}
