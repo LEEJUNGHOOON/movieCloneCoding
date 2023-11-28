@@ -1,19 +1,83 @@
+const port = 4000; //Port no
+const url =
+  "https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year"; //Movie Info api URL
+const express = require("express");
+const path = require("path");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
-const llist = {"name" :"wjdgns","age" : "25"}
-const port =4000;
-const express = require('express')
-const app = express()
-const cors = require('cors')
+const MovieList = require("./models/movieList");
 
-app.use(cors());
+const app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
-app.get('/practice/:id',(req, res) =>{
-    const q = req.params;
- 
-    res.json({'user':q})
-  })
+app.use(cors()); //cors
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(4000)
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use("/movies", require("./routes/router")); //APIs
+
+app.use(express.static(path.join(__dirname, "../react-for-beginners/build")));
+
+app.get('/', function (요청, 응답) {
+  응답.sendFile(path.join(__dirname, '../react-for-beginners/build/index.html'));
+});
+
+
+/**
+ * Connection to Mongo db
+ */
+const mongoose = require("mongoose");
+mongoose
+  .connect(
+    `mongodb+srv://wjdgns9799:9799
+@cluster0.gtjir4q.mongodb.net/?retryWrites=true&w=majority`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => console.log("mongoDB Connected..."))
+  .catch((arr) => console.log(arr));
+/**
+ * Using fetch function, information is 
+ * received in the form of json in the application of providing movie information
+ */
+const getMovies = async (url) => {
+  const json = await (await fetch(url)).json();
+  saveMovies(json.data.movies);
+};
+
+/**
+ * a function of saving a movie to mongodb
+ */
+const saveMovies = async (arr) => {
+  arr.map(async (movie) => {
+    let movielist = new MovieList();
+    movielist.id = movie.id;
+    movielist.coverImg = movie.medium_cover_image;
+    movielist.title = movie.title;
+    movielist.summary = movie.summary;
+    movielist.genres = movie.genres;
+    await movielist //api에서 영화정보들을 가져와 mongodb에서장
+      .save()
+      .then(() => {
+        console.log("saved succeed!");
+      })
+      .catch((err) => {
+        console.log("data already exist!");
+      });
+  });
+};
+
+//Get movies
+getMovies(url);
+
+app.listen(port, () => {
+  console.log(`Express port : ${port}`);
+});
+
+app.get('*', function (요청, 응답) {
+  응답.sendFile(path.join(__dirname, '../react-for-beginners/build/index.html'));
+});
