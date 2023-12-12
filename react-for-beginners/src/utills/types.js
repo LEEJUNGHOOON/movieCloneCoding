@@ -1,0 +1,10 @@
+export const LOGIN_USER = "login_user";
+export const REGISTER_USER = "register_user";
+export const AUTH_USER = "auth_user";
+export const LOGOUT_USER = "logout_user";
+export const PWCHECK_USER = "pwcheck_user";
+export const UPDATE_USER = "update_user";
+export const ADD_MOVIE = "add_movie";
+export const DELETE_MOVIE = "delete_movie";
+export const GET_LIKEMOVIES = "get_likemovies";
+export const GET_SEARCHEDMOVIES = "get_searchedmovies";

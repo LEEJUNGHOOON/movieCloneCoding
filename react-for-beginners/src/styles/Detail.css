@@ -1,0 +1,16 @@
+.title{
+    float: left;
+}
+.subinfo{
+    position: relative;
+    float: right;
+    display: inline-flex;
+    padding-right: 10px;
+} 
+.moreinfo{
+    clear: both;
+} 
+.information{
+    background-color: #ffffff;
+    background-color: rgba( 255, 255, 255, 0.5 );
+}
