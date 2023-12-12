@@ -20,8 +20,8 @@ app.use("/movies", require("./routes/router")); //APIs
 
 app.use(express.static(path.join(__dirname, "../react-for-beginners/build")));
 
-app.get('/', function (요청, 응답) {
-  응답.sendFile(path.join(__dirname, '../react-for-beginners/build/index.html'));
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '../react-for-beginners/build/index.html'));
 });
 
 
@@ -40,6 +40,7 @@ mongoose
   )
   .then(() => console.log("mongoDB Connected..."))
   .catch((arr) => console.log(arr));
+
 /**
  * Using fetch function, information is 
  * received in the form of json in the application of providing movie information
@@ -60,7 +61,7 @@ const saveMovies = async (arr) => {
     movielist.title = movie.title;
     movielist.summary = movie.summary;
     movielist.genres = movie.genres;
-    await movielist //api에서 영화정보들을 가져와 mongodb에서장
+    await movielist //Take movie information from api and chapter from mongodb
       .save()
       .then(() => {
         console.log("saved succeed!");
@@ -71,13 +72,13 @@ const saveMovies = async (arr) => {
   });
 };
 
-//Get movies
+//Get movies api
 getMovies(url);
 
 app.listen(port, () => {
   console.log(`Express port : ${port}`);
 });
 
-app.get('*', function (요청, 응답) {
-  응답.sendFile(path.join(__dirname, '../react-for-beginners/build/index.html'));
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, '../react-for-beginners/build/index.html'));
 });

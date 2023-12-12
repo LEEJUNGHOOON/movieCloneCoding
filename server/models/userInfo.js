@@ -32,8 +32,8 @@ const userInfoSchema = new Schema(
 userInfoSchema.pre("save", function (next) {
   var user = this;
   if (user.isModified("password")) {
-    //비밀번호 암호화 bcrypt
-    //salt 생성 (saltRounds= 10)
+    //Password encryption bcrypt
+    //salt generate (saltRounds= 10)
     bcrypt.genSalt(saltRounds, function (err, salt) {
       if (err) return next(err);
       //this.password = myPlaintextPassword
@@ -50,8 +50,8 @@ userInfoSchema.pre("save", function (next) {
 });
 
 userInfoSchema.methods.comparePassword = function (plainPassword, cb) {
-  // plainPassword : 123456 / 암호화된 비번 : #!@#1241@$1~!asd
-  //plainPassword 암호화 해서 비교한다
+  // plainPassword : 123456 / Encrypted Password : #!@#1241@$1~!asd
+  //plainPassword Encrypt and compare
   bcrypt.compare(plainPassword, this.password, function (err, isMatch) {
     if (err) return cb(err);
     cb(null, isMatch);
@@ -60,10 +60,10 @@ userInfoSchema.methods.comparePassword = function (plainPassword, cb) {
 
 userInfoSchema.methods.generateToken = function (cb) {
   var user = this;
-  //jsonwebToken을 이용하여 토큰 생성 user._id는 mongo id
+  //Create a token using jsonwebToken user._id is mongoid
   // user._id + 'secretToken' = token
-  //jwt.sign(payload, secretKey)이 기대값
-  //user_.id는 문자열이 아니기 때문에 .toHexString으로 24바이트 16진수 문자열로 바꿔줌?
+  //jwt.sign (payload, secretKey) expected value
+  //Because user_.id is not a string, do you replace it with a .toHexString to a 24-byte hex string
   var token = jwt.sign(user._id.toHexString(), "secretToken");
   user.token = token;
   user
@@ -80,8 +80,8 @@ userInfoSchema.statics.findByToken = function (token, cb) {
   var user = this;
   //token decode
   jwt.verify(token, "secretToken", function (err, decoded) {
-    //유저 아이디를 이용해서 유저를 찾은 다음에
-    //클라이언트에서 가져온 토큰과 디비에 보관된 토큰이 일치하는지 확인
+    //After finding the user using the user ID
+    //Verify that the token imported from the client matches the token stored in the DB
     user.findOne({ _id: decoded, token: token }, function (err, user) {
       if (err) return cb(err);
       cb(null, user);
