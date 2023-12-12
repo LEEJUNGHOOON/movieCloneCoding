@@ -1,58 +1,61 @@
 # Node.js + Express + React Project
 
-### movie cloning project Using Node.js + Express + React
-<hr/>
+## Movie Cloning Project using Node.js + Express + React
+---
 
-## 프로젝트 배경 및 동기
+## Project Background and Motivation
+- This project is an application of a toy project based on a simple React tutorial.
 
-- 간단한 리액트 강좌 수강 중 토이프로젝트를 응용한 프론트앤드 + 백앤드 프로젝트이다
+## Project Objectives
+- Enhance frontend design and UI development skills.
+- Improve understanding and development skills of API servers.
 
-## 프로젝트 목적
+## Development Environment
+- **Main Server:** [Koyeb](url)
+- **Environment:** Node.js (v21.2.0)
+- **Language:** JavaScript
+- **Frameworks:** React (v18.2), Express (v4.18.2)
+- **Database:**
+    - MongoDB (v5.7.0)
+    - ODM: Mongoose
+- **Tools:** VSCode (IDE for code writing), Postman (API testing)
+- **Libraries/Packages:** 
+    - react-bootstrap (v2.8.0)
+    - chakra-ui/react (v2.8.1)
+    - tsparticles (v2.11.0)
+    - typewriter-effect (v2.20.1)
+    - aos
 
-- 프론트앤드 디자인과 UI개발능력 고취
-- API서버를 개발함으로써 그에 대한 이해와 개발능력 향상
+---
 
-## 개발 환경
+### Key Features
+- [x] Login, Logout
+- [x] User Registration
+- [x] User Profile Management
+- [x] Genre Search
+- [x] Movie Like & Dislike
+- [x] List of Liked Movies
 
-- 메인 서버: ****Koyeb(url)****
-- 환경 : Node.js(21.2.0)
-- Language : javaScript
-- FrameWorks : React(18.2) , Express(4.18.2)
-- DataBase:
-    - MongoDB(5.7.0)
-    - ODM:mongoose
-- Tool: VSCode(코드 작성 IDE), PostMan(API 테스트)
-- 라이브러리,패키지 : react-bootstrap(2.8.0) , chakra-ui/react(2.8.1), tsparticles(2.11.0), typewriter-effect(2.20.1) aos(animation on scroll, 2.3.4)
-  <hr/>
-### 주요기능
-- [x] 로그인, 로그아웃
-- [x] 회원가입
-- [x] 회원정보관리
-- [x] 장르검색
-- [x] movieLike&disLike
-- [x] 좋아하는 영화 목록
-
-###### 프레임워크,런타임
+#### Frameworks & Runtimes
 - [x] Node.js
 - [x] React
 - [x] Express
 - [x] MongoDB
 
-###### 패키지,라이브러리
+#### Packages & Libraries
 - [x] react
 - [x] react-redux
 - [x] react-router
 - [x] babel
 - [x] webpack
 - [x] Express
-- [x] Mongodb
+- [x] MongoDB
 - [x] Mongoose
-- [x] Express
-- [x] Mongodb
-- [x] Mongoose
-<hr/>
 
-## API Calls:(Redux)
+---
+
+## API Calls: (Redux)
+
 
 types.js
 
@@ -169,7 +172,7 @@ router.post("/api/users/login", async (req, res) => {
 ```
 <hr/>
 
-# 작동화면 
+# Operation screen 
 
 #### 1. main page
 
@@ -214,7 +217,7 @@ router.post("/api/users/login", async (req, res) => {
 
 <hr/>
 
-배포된서버: url
+Deployed Server: url
 <hr/>
 
 ## refernece
