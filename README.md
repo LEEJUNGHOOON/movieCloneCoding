@@ -25,23 +25,20 @@
 - 라이브러리,패키지 : react-bootstrap(2.8.0) , chakra-ui/react(2.8.1), tsparticles(2.11.0), typewriter-effect(2.20.1) aos(animation on scroll, 2.3.4)
   <hr/>
 ### 주요기능
-- [x] 文章列表展示
-- [x] 文章分类
-- [x] 登录管理
-- [x] 权限管理
-- [x] 文章详情页展示
-- [x] 管理员文章管理
-- [x] 管理员标签管理
-- [x] 发文（支持MarkDown语法）
+- [x] 로그인, 로그아웃
+- [x] 회원가입
+- [x] 회원정보관리
+- [x] 장르검색
+- [x] movieLike&disLike
+- [x] 좋아하는 영화 목록
 
-프레임워크,런타임
-- [x] mongoose数据库操作
-- [x] 路由管理
-- [x] 身份验证
-- [x] 基本的增删改查
-- [x] ...
+###### 프레임워크,런타임
+- [x] Node.js
+- [x] React
+- [x] Express
+- [x] MongoDB
 
-패키지,라이브러리
+###### 패키지,라이브러리
 - [x] react
 - [x] react-redux
 - [x] react-router
@@ -50,9 +47,12 @@
 - [x] Express
 - [x] Mongodb
 - [x] Mongoose
+- [x] Express
+- [x] Mongodb
+- [x] Mongoose
 <hr/>
 
-## API Calls:(redux)
+## API Calls:(Redux)
 
 types.js
 
@@ -171,32 +171,32 @@ router.post("/api/users/login", async (req, res) => {
 
 # 작동화면 
 
-1. main page
+#### 1. main page
 
 ![메인페이지 (1)](https://github.com/LEEJUNGHOOON/movieCloneCoding/assets/97214215/5d6f9738-f981-4b2c-8bfc-85a3ec2457dd)
 
-2. SignUp & Login → main page
+#### 2. SignUp & Login → main page
 
 ![로그인_회원가입_AdobeExpress](https://github.com/LEEJUNGHOOON/movieCloneCoding/assets/97214215/3005f3fc-a812-432f-985a-bc7e00d21e0a)
 
--mongoDB / generate token & encrypt password
+##### - mongoDB / generate token & encrypt password
 
 <img width="872" alt="스크린샷 2023-12-12 오후 7 16 38" src="https://github.com/LEEJUNGHOOON/movieCloneCoding/assets/97214215/974c33bf-a827-430d-abb4-88833d95280b">
 
-3. Update User Info
+#### 3. Update User Info
 
 ![회원정보_수정_AdobeExpress](https://github.com/LEEJUNGHOOON/movieCloneCoding/assets/97214215/7e382a7e-06ea-4e0e-afa4-466c9d6e11c9)
 
--mongoDB / name & ID changed
+##### - mongoDB / name & ID changed
 
 <img width="797" alt="스크린샷 2023-12-12 오후 7 18 12" src="https://github.com/LEEJUNGHOOON/movieCloneCoding/assets/97214215/70e6417e-7f13-48f8-b724-1ff11efbac5f">
 
 
-4. MovieDetail & Genre Search
+#### 4. MovieDetail & Genre Search
 
 ![무비상세_장르검색_AdobeExpress](https://github.com/LEEJUNGHOOON/movieCloneCoding/assets/97214215/fb2c2755-cc7e-46aa-8b05-bcef287df55b)
 
-5. Like Movies & LogOut
+#### 5. Like Movies & LogOut
 
 ![영화좋아요_내_무비_로그아웃_AdobeExpress](https://github.com/LEEJUNGHOOON/movieCloneCoding/assets/97214215/bdb61bdc-a5c9-402d-82a5-3444a14b6995)
 
