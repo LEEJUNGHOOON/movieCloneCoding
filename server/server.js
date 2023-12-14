@@ -20,9 +20,6 @@ app.use("/movies", require("./routes/router")); //APIs
 
 app.use(express.static(path.join(__dirname, "../react-for-beginners/build")));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../react-for-beginners/build/index.html'));
-});
 
 
 /**
