@@ -1,4 +1,4 @@
-# Node.js + Express + React Project
+# React + Node.js + Express + MongoDB Project
 
 ## Movie Cloning Project using Node.js + Express + React
 ---
